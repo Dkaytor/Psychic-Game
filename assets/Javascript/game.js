@@ -1,7 +1,7 @@
 // Creates an array of all letter choices
 
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var userChoices = [];
+//var userChoices = [];
 
 // Create variables to hold stats
 
@@ -18,29 +18,27 @@ document.onkeyup = function (event) {
 
 
     //Computer randomly chooses a letter from the array
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.lenghth), 1];
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+
+    //Write logic 
+    
+        if ((userGuess === computerGuess)) {
+            wins++;
+            guessesLeft = 9;
+            }      
+         else if ((userGuess !== computerGuess)) {
+        guessesLeft--;
+    
+        if (guessesLeft === 0) {
+            guessesLeft = 9;
+            losses++;
+       
+        }
+    }
 
     
 
-    //Write logic to compare user guess to computer guess
-
-    if ((userGuess==computerGuess) == true) {
-        wins++;
-        guessesLeft = 9;
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-        }
-        else if (userGuess !== computerGuess) {
-        guessesLeft--;
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-        if (guessesLeft === 0) {
-            losses++;
-            guessesLeft = 9;
-            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-        }
-    }
 
     console.log(userGuess);
     console.log(computerGuess);
